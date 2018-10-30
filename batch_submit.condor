@@ -1,0 +1,9 @@
+executable            = processStreamers_Batch.sh 
+arguments             = HIPhysicsMinimumBiasReducedFormat0 325 174 1 $(ProcId) 500 
+output                = output/job.$(ClusterId).$(ProcId).out
+error                 = error/job.$(ClusterId).$(ProcId).err
+log                   = log/job.$(ClusterId).$(ProcId).log
+transfer_input_files  = masterRECO.py 
++MaxRuntime = 36000
+RequestCpus = 8
+queue 3
