@@ -1,9 +1,21 @@
 executable            = processStreamers_Batch.sh 
-arguments             = HIPhysicsMinimumBiasReducedFormat0 325 174 1 $(ProcId) 500 
+
+# running the job
+#arguments             = HIPhysicsMinimumBiasReducedFormat0 325 174 1 $(ProcId) 500 
+arguments             = SED_ARGS
+
+#input/outputs
 output                = output/job.$(ClusterId).$(ProcId).out
 error                 = error/job.$(ClusterId).$(ProcId).err
 log                   = log/job.$(ClusterId).$(ProcId).log
 transfer_input_files  = masterRECO.py 
-+MaxRuntime = 36000
+
+#max allowed runtime in seconds
+#using 1 day as default
++MaxRuntime = 86400
+
+#must request many cpus to get more memory (2gb allocated per core)
 RequestCpus = 8
-queue 3
+
+#number of jobs
+queue SED_NJOBS

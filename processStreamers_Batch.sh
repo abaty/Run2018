@@ -63,8 +63,10 @@ do
    cmsRun "configs/$OUTFILENAME.py"
    wait 
 
+   #move back to eos
    cp outputFile$LUMI.root $OUTDIRNAME$OUTFILENAME.root
 
+   #cleanup
    rm inputFile$LUMI.root outputFile$LUMI.root
 done
 
