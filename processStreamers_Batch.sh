@@ -66,6 +66,9 @@ do
    #move back to eos
    cp outputFile$LUMI.root $OUTDIRNAME$OUTFILENAME.root
 
+   #output number of events processed
+   edmEventSize -v outputFile$LUMI.root | head -n 2 | tail -n 1 | cut -d \  -f 3,4
+
    #cleanup
    rm inputFile$LUMI.root outputFile$LUMI.root
 done
